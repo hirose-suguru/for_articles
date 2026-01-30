@@ -1,0 +1,51 @@
+{
+  // hookシステムで使用するファイルパスの一元管理
+  // hook_utils.pyのget_path_from_config()で参照されます
+
+  // === ログファイル ===
+  "log_file": ".claude/hooks/logs/hook_executions.log",
+  "debug_file": ".claude/hooks/logs/hook_debug.log",
+  "timestamps_file": ".claude/hooks/logs/timestamps.log",
+  "error_file": ".claude/hooks/logs/hook_errors.log",
+  "tool_history_file": ".claude/hooks/logs/tool_history.log",
+  "bash_history_file": ".claude/hooks/logs/bash_history.log",
+  "bash_statistics_file": ".claude/hooks/jsons/bash_statistics.json5",
+
+  // === 設定ファイル ===
+  "hook_counters_file": ".claude/hooks/jsons/hook_counters.json5",
+  "hook_toggle_file": ".claude/hooks/jsons/hook_toggle_config.json5",
+  "mcp_control_file": ".claude/hooks/jsons/mcp_control_config.json5",
+  "file_split_config": ".claude/hooks/jsons/file_split_config.json5",
+  "banned_commands_config": ".claude/hooks/jsons/hook_banned_commands.json5",
+  "scripts_options_file": ".claude/hooks/jsons/scripts_options.json5",
+  "codex_config": ".claude/hooks/jsons/codex_config.json5",
+  "ss_hook_toggle_file": ".claude/hooks/jsons/config_ss_reset_hook_toggle.json5",
+
+  // === キャッシュファイル ===
+  "ups_lock_file": ".claude/hooks/cache/ups_lock",
+  "stdin_cache_file": ".claude/hooks/cache/stdin_cache.json",
+  "notification_project_dir_cache": ".claude/hooks/cache/notification_project_dir.txt",
+
+  // === その他のファイル ===
+  "splited_files_dir": "splited_files",
+
+  // ログ出力フォーマット
+  "format": "{script_name} hook was executed at {timestamp}",
+
+  // === Obsidian設定 ===
+  "obsidian": {
+    "vault_path": "",
+    "project_type": "",
+    "paths": {
+      "references": "01_knowledge/references",
+      "progress": "02_project/progress.md",
+      "index": "02_project/project_design/INDEX.md",
+      "features": "02_project/project_design/features",
+      "decisions": "01_knowledge/decisions",
+      "sessions": "02_project/sessions",
+      "templates": "_templates",
+      "implementation_plan": "02_project/implementation_plan.md",
+      "implementation_history": "02_project/implementation_history.md",
+    },
+  },
+}
