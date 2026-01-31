@@ -5,10 +5,11 @@ focus_wezterm.py
 通知クリック時にWeztermウィンドウを前面にフォーカスする
 
 機能:
-1. 一時ファイルからproject_dirを読み込む
-2. wezterm cli listでCWDが一致するタブを探す
-3. wezterm cli activate-tabで正しいタブをアクティブにする
-4. ウィンドウを前面にフォーカスする
+1. 一時ファイルからproject_dirとhwndを読み込む
+2. hwndが有効ならそのウィンドウをフォーカス（最優先）
+3. 失敗した場合、wezterm cli listでCWDが一致するタブを探す
+4. wezterm cli activate-tabで正しいタブをアクティブにする
+5. ウィンドウを前面にフォーカスする
 
 Usage:
     python focus_wezterm.py
@@ -50,7 +51,15 @@ def normalize_wezterm_cwd(cwd: str) -> str:
     return cwd.rstrip('/')
 
 
-def get_target_project_dir() -> str | None:
+class CacheData(NamedTuple):
+    """キャッシュから読み込んだデータ"""
+    project_dir: str | None
+    hwnd: int | None
+    pane_id: int | None
+    wezterm_socket: str | None
+
+
+def get_cache_data() -> CacheData:
     """
     一時ファイルからキャッシュデータを読み込む
 
