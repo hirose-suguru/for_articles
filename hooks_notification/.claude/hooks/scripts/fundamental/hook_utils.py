@@ -604,9 +604,12 @@ def clear_file(file_path: Path):
         if file_path.exists():
             with open(file_path, 'w', encoding='utf-8') as _:
                 pass  # 空の状態で書き込み
-    except Exception:
-        # エラーが発生しても処理を続行（ログファイルのクリアは必須ではない）
-        pass
+    except PermissionError as e:
+        # ファイルがロックされている場合はエラーログに記録
+        log_hook_error(f"clear_file: PermissionError - {file_path.name} is locked: {e}")
+    except Exception as e:
+        # その他のエラーもログに記録（処理は続行）
+        log_hook_error(f"clear_file: Failed to clear {file_path.name}: {e}")
 
 def get_tool_data_from_stdin() -> dict:
     """
