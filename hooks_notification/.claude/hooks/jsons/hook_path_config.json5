@@ -10,6 +10,7 @@
   "tool_history_file": ".claude/hooks/logs/tool_history.log",
   "bash_history_file": ".claude/hooks/logs/bash_history.log",
   "bash_statistics_file": ".claude/hooks/jsons/bash_statistics.json5",
+  "focus_wezterm_log": ".claude/hooks/logs/focus_wezterm.log",
 
   // === 設定ファイル ===
   "hook_counters_file": ".claude/hooks/jsons/hook_counters.json5",
@@ -24,7 +25,7 @@
   // === キャッシュファイル ===
   "ups_lock_file": ".claude/hooks/cache/ups_lock",
   "stdin_cache_file": ".claude/hooks/cache/stdin_cache.json",
-  "notification_project_dir_cache": ".claude/hooks/cache/notification_project_dir.txt",
+  "notification_wezterm_cache": ".claude/hooks/cache/notification_wezterm_cache.json",
 
   // === その他のファイル ===
   "splited_files_dir": "splited_files",
